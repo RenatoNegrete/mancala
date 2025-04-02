@@ -35,6 +35,29 @@ Reglas de Kalah.
       por lo que se coloca una semilla en el y se continua colocando semillas en los hoyos del rival.
 
     - Si la ultima semilla cae en el almacen del jugador, el jugador tiene otro turno.
+      Ejemplo:
+        Turno Jugador 1: escoge E
+
+                     a       b       c       d       e       f
+          |-------------------------------------------------------------|      
+          |      |       |       |   2   |       |   1   |       |      |
+          |      |-------|-------|-------|-------|-------|-------|      |
+          |      |   4   |   3   |   2   |       |   2   |       |      |
+          |-------------------------------------------------------------|
+                     A       B       C       D       E       F
+
+        Despues de movimiento (Turno Jugador 1)
+
+                     a       b       c       d       e       f
+          |-------------------------------------------------------------|      
+          |      |       |       |   2   |       |   1   |       |      |
+          |      |-------|-------|-------|-------|-------|-------|  1   |
+          |      |   4   |   3   |   2   |       |       |   1   |      |
+          |-------------------------------------------------------------|
+                     A       B       C       D       E       F
+
+      * El Jugador 1 escoge el hoyo E como este tiene dos semillas la ultima va a acabar en el
+      almacen del jugador por lo que vuelve a ser su turno y puede hacer otro movimiento. 
 
 3. Captura:
     - Si la ultima semilla cae en un hoyo vacio del lado del jugador y en el hoyo opuesto del rival hay
