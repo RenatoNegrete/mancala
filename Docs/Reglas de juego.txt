@@ -1,2 +1,103 @@
-Las reglas del juego Mancala son las siguientes.
+Reglas de Kalah.
 
+1. Preparacion:
+    - El tablero consta de dos filas (una por jugador), cada fila tiene seis hoyos y a la derecha de cada
+      fila de encuentra un almacen.
+    - Cada hoyo comienza con un numero fijo de semillas, este puede ser 4, 5 o 6.
+
+2. Turno:
+    - En su turno el jugador escoge uno de sus hoyos, cuando escoge el hoyo se recogen las semillas del
+      hoyo y se comienzan a sembrar una por una en sentido antihorario.
+    - Se coloca una semilla en cada hoyo incluyendo el almacen del jugador, pero no el almacen del rival.
+      Ejemplo:
+        Turno Jugador 1: escoge E
+
+                     a       b       c       d       e       f
+          |-------------------------------------------------------------|      
+          |      |       |       |   2   |       |   1   |       |      |
+          |      |-------|-------|-------|-------|-------|-------|      |
+          |      |   4   |   3   |   2   |       |   5   |       |      |
+          |-------------------------------------------------------------|
+                     A       B       C       D       E       F
+
+        Despues de movimiento (Turno Jugador 2)
+
+                     a       b       c       d       e       f
+          |-------------------------------------------------------------|      
+          |      |       |       |   2   |   1   |   2   |   1   |      |
+          |      |-------|-------|-------|-------|-------|-------|  1   |
+          |      |   4   |   3   |   2   |       |       |   1   |      |
+          |-------------------------------------------------------------|
+                     A       B       C       D       E       F
+
+      * El Jugador 1 mueve las semillas del hoyo E, va colocando cada semilla en un hoyo en sentido
+      antihorario hasta que se quede sin semillas, en el ejemplo las semillas pasan por el almacen
+      por lo que se coloca una semilla en el y se continua colocando semillas en los hoyos del rival.
+
+    - Si la ultima semilla cae en el almacen del jugador, el jugador tiene otro turno.
+
+3. Captura:
+    - Si la ultima semilla cae en un hoyo vacio del lado del jugador y en el hoyo opuesto del rival hay
+      semillas, el jugador captura todas las semillas del hoyo opuesto y las coloca en su almacen.
+      Ejemplo:
+        Turno Jugador 1: escoge A
+
+                     a       b       c       d       e       f
+          |-------------------------------------------------------------|      
+          |      |       |       |   2   |       |   1   |       |      |
+          |      |-------|-------|-------|-------|-------|-------|      |
+          |      |   2   |   3   |       |       |   5   |       |      |
+          |-------------------------------------------------------------|
+                     A       B       C       D       E       F
+
+        Despues de movimiento (Turno Jugador 2)
+
+                     a       b       c       d       e       f
+          |-------------------------------------------------------------|      
+          |      |       |       |       |       |   1   |       |      |
+          |      |-------|-------|-------|-------|-------|-------|  2   |
+          |      |       |   4   |   1   |       |   5   |       |      |
+          |-------------------------------------------------------------|
+                     A       B       C       D       E       F
+
+      * El Jugador 1 mueve las semillas del hoyo A como solo hay dos semillas la ultima semilla va a
+      terminar en el hoyo C, este hoyo esta vacio pero el hoyo contrario tiene dos semillas por lo que
+      estas se capturan y son colocadas en el almacen del jugador.
+
+4. Fin del juego:
+    - El juego termina cuando un jugador no puede hacer mas movimientos ya que su lado esta vacio.
+    - El jugador rival coloca las semillas restantes de su lado en su almacen.
+    - Gana el jugador que tenga mas semillas en su almacen.
+    Ejemplo:
+        Turno Jugador 1: escoge E
+
+                     a       b       c       d       e       f
+          |-------------------------------------------------------------|      
+          |      |       |       |   2   |       |   1   |       |      |
+          |  10  |-------|-------|-------|-------|-------|-------|  11  |
+          |      |       |       |       |       |       |   2   |      |
+          |-------------------------------------------------------------|
+                     A       B       C       D       E       F
+
+        Despues del movimiento
+
+                     a       b       c       d       e       f
+          |-------------------------------------------------------------|      
+          |      |       |       |   2   |       |   1   |   1   |      |
+          |  10  |-------|-------|-------|-------|-------|-------|  12  |
+          |      |       |       |       |       |       |       |      |
+          |-------------------------------------------------------------|
+                     A       B       C       D       E       F
+
+        Como no hay mas movimientos posibles se acaba el juego y se colocan las semillas restantes en
+        el almacen.
+
+                     a       b       c       d       e       f
+          |-------------------------------------------------------------|      
+          |      |       |       |       |       |       |       |      |
+          |  14  |-------|-------|-------|-------|-------|-------|  12  |
+          |      |       |       |       |       |       |       |      |
+          |-------------------------------------------------------------|
+                     A       B       C       D       E       F
+
+        Gana el Jugador 2 (14 > 12)
