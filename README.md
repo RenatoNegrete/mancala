@@ -14,7 +14,7 @@ El objetivo del juego es capturar más semillas que el oponente siguiendo las re
 3. Si la última semilla cae en su almacén, obtiene un turno extra.  
 4. Si cae en un hoyo vacío de su lado, captura las semillas del hoyo opuesto.  
 5. El juego termina cuando un jugador no puede mover, y el otro se lleva las semillas restantes.  
-**⚠ Nota:** Esto es solo una indicación temporal y se puede eliminar más tarde.
+**⚠ Nota:** Para ver mása fondo las reglas del juego ver el archivo Reglas de juego en el direcorio Docs.
 
 ## Controles en Consola  
 -  
