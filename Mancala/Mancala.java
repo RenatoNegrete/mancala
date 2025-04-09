@@ -37,7 +37,10 @@ public class Mancala {
 
     public void startGame() {
         System.out.println("El juego Mancala ha comenzado.");
-        board.showBoard();
+        while(!board.finished()) {
+            board.showBoard();    
+        }
+        
     }
 
     public static void main(String[] args) {

@@ -2,7 +2,7 @@ public class Pit {
     private int rocks;
     private boolean isStorage;
 
-    public Pit( boolean isStorage) {
+    public Pit(int rocks, boolean isStorage) {
         this.rocks = rocks;
         this.isStorage = isStorage;
     }
