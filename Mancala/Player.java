@@ -1,8 +1,6 @@
-public class Player {
-    int id;
+public interface Player {
 
-    public Player(int id) {
-        this.id = id;
-    }
-      
+    String getName();
+    int chooseMove();
+    
 }

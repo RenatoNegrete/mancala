@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class HumanPlayer implements Player {
+
+    private String name;
+    private Scanner scanner;
+
+    public HumanPlayer(String name) {
+        this.name = name;
+        this.scanner = new Scanner(System.in);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public int chooseMove() {
+        int pit;
+        System.out.println("Choose a pit (1-6): ");
+        pit = scanner.nextInt();
+        return pit;
+    }
+
+}
