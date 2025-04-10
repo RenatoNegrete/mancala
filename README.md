@@ -17,10 +17,15 @@ El objetivo del juego es capturar más semillas que el oponente siguiendo las re
 **⚠ Nota:** Para ver mása fondo las reglas del juego ver el archivo Reglas de juego en el direcorio Docs.
 
 ## Controles en Consola  
--  
-- La consola mostrará el estado del tablero después de cada turno.  
+- La consola mostrará el estado del tablero después de cada turno.
+- Después de mostrar el tablero se pide al jugador que seleccione un hoyo para hacer su movimiento.  
 
 ## Fin del Juego  
 - El jugador con más semillas en su almacén gana la partida.  
 
-## Instalación y Ejecución  
+## Instalación y Ejecución
+- Para instalar el juego, descarga el `.zip` o clona el repositorio.
+
+```sh
+javac src/*.java -d out
+java -cp out Mancala
