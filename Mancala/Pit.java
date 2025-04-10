@@ -1,3 +1,9 @@
+/************************************************************
+ * Pontificia Universidad Javeriana
+ * Analisis de algoritmos
+ * Autores: Sergio Cuellar, Diego Villabon y Renaro Negrete
+*************************************************************/
+
 public class Pit {
     private int rocks;
     private boolean isStorage;
@@ -12,9 +18,6 @@ public class Pit {
     }
     public void addRock(int rocks) {
         this.rocks += rocks;
-    }
-    public void removeRocks(int rocks) {
-        this.rocks -= rocks;
     }
 
     public void clearPit() {

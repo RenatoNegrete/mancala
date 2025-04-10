@@ -1,3 +1,9 @@
+/************************************************************
+ * Pontificia Universidad Javeriana
+ * Analisis de algoritmos
+ * Autores: Sergio Cuellar, Diego Villabon y Renaro Negrete
+*************************************************************/
+
 public class Board {
     private Pit[][] pits;
 
