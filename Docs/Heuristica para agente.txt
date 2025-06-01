@@ -1,0 +1,52 @@
+Heuristica para el agente inteligente
+
+1.  Que se quiere lograr con la heuristica?
+    
+    Con la heuristica se quiere poder evaluar el tablero y poder hacer una estimacion de su estado
+    para ver que tan favorable es dihco estado. Esta funcion no dice si un jugador gano o perdio
+    sirve para ver que tan buena es la posicion actual de un jugador.
+
+2.  Factores a considerar
+    
+    - Diferencia de semillas en los almacenes: Si un jugador tiene mas semillas en su almacen significa
+      que esta mas cerca de ganar por lo que cuanto mayor sea la diferencia de los almacenes mejor es
+      el estado del jugador.
+    - Cantidad de semillas en el lado propio: Si un jugador tiene mas semillas en su lado puede hacer
+      mas jugadas en los proximos turnos por lo que los estados donde el jugador tiene mas semillas en
+      su lado del tablero se considera un estado mejor.
+    - Turnos extra: Como dicen las reglas si la ultima semilla que colocas despues de hacer un movimiento
+      acaba en tu almacen tienes otro turno lo cual es ventajoso ya que puedes seguir jugando.
+    - Capturas: Si la ultima semilla que colocas despues de hacer un movimiento cae en un hoyo donde el
+      hoyo contrario en el lado del oponente tiene semillas capturas esas semillas y las colocas en tu
+      almacen. Si el estado acaba en una captura es una ventaja ya que obtienes mas semillas y le quitas
+      semillas a tu rival.
+
+3.  Ecuacion de la heuristica
+    
+    H = a(Ap - Ao) + b(Sp - So) + c(E) + d(C)
+
+    Variables
+    Ap: cantidad de semillas en el almacen del jugador.
+    Ao: cantidad de semillas en el almacen del rival.
+    Sp: cantidad de semillas en los hoyos del jugador.
+    So: cantidad de semillas en los hoyos del rival.
+    E: si el jugador obtiene un turno extra (1 o 0).
+    C: si el jugador hace una captura (1 o 0).
+
+    Coeficientes de peso
+    a: peso para la diferencia de semillas en almacenes.
+    b: peso para la diferencia de semillas en hoyos.
+    c: peso para turno extra.
+    d: peso para captura.
+
+    Los coeficientes de peso puedne variar dependiendo de la importancia que se le de a cada aspecto.
+    Algunos valores de peso recomendados son los siguientes.
+    
+    a = 5
+    b = 1
+    c = 10
+    d = 12
+
+    Se da mas pesos a los turnos extra y a las capturas ya que son las que pueden dar mas ventaja al
+    jugador. Y de igual manera se valora mas tener la mayor diferencia de semillas en los almacenes que
+    en los hoyos.
