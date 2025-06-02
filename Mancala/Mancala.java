@@ -43,10 +43,15 @@ public class Mancala {
                             String p2 = scanner.nextLine();
                             this.players[0] = new HumanPlayer(p2);
                             this.players[1] = new HumanPlayer(p1);
-                            beginGame();
+                            beginGame(0);
                             break;
                         case 2:
-                            System.out.println("This game mode is not available for the moment");
+                            System.out.println("Player 1 enter yout name: ");
+                            String pH = scanner.nextLine();
+                            String pR = "Computer";
+                            this.players[0] = new AIPlayer(pR);
+                            this.players[1] = new HumanPlayer(pH);
+                            beginGame(6);
                             break;
                         default:
                             System.out.println("Invalid option, try again");
@@ -64,7 +69,7 @@ public class Mancala {
         scanner.close();
     }
 
-    public void beginGame() {
+    public void beginGame(int depth) {
         System.out.println("\n==================");
         System.out.println("The game has begun");
         System.out.println("==================");
@@ -73,7 +78,8 @@ public class Mancala {
             board.showBoard(this.players[1].getName(), this.players[0].getName());
     
             System.out.println("It's Player " + this.players[this.playerTurn].getName() + " turn");
-            int pitIndex = this.players[this.playerTurn].chooseMove();
+            int pitIndex = this.players[this.playerTurn].chooseMove(this.board, this.playerTurn, depth);
+            System.out.println("Chosen move: " + pitIndex);
 
             if(pitIndex < 1 || pitIndex > 6) {
                 System.out.println("Invalid position, choose one from 1 to 6");

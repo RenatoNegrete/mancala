@@ -6,6 +6,24 @@
 
 public class Board {
     private Pit[][] pits;
+    private int heuristic;
+    private boolean extra = false;
+
+    public boolean getExtra() {
+        return this.extra;
+    }
+
+    public void setExtra(boolean n) {
+        this.extra = n;
+    }
+
+    public int getHeuristic() {
+        return this.heuristic;
+    }
+
+    public void setHeuristic(int n) {
+        this.heuristic = n;
+    }
 
     public Board() {
         this.pits = new Pit[2][7];
@@ -116,6 +134,32 @@ public class Board {
         }
     
         return extraTurn;
+    }
+
+    public int heuristic(int player) {
+        int h = 0;
+        int rival = (player == 0) ? 1 : 0;
+        h += 5 * (this.pits[player][6].getRocks() - this.pits[rival][6].getRocks());
+        int sumP = 0, sumR = 0;
+        for(int i = 0; i < 6; i++) {
+            sumP += this.pits[player][i].getRocks();
+            sumR += this.pits[rival][i].getRocks();
+        }
+        h += 1 * (sumP - sumR);
+        return h;
+    }
+
+    public Board copy() {
+        Board newBoard = new Board();
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 7; j++) {
+                int rocks = this.pits[i][j].getRocks();
+                boolean isStore = this.pits[i][j].isStorage();
+                newBoard.pits[i][j] = new Pit(rocks, isStore);
+            }
+        }
+        newBoard.setHeuristic(this.heuristic);
+        return newBoard;
     }
 
 }

@@ -1,6 +1,6 @@
 public interface Player {
 
     String getName();
-    int chooseMove();
-    
+    int chooseMove(Board board, int player, int depth);
+
 }

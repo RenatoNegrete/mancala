@@ -27,5 +27,5 @@ El objetivo del juego es capturar más semillas que el oponente siguiendo las re
 - Para instalar el juego, descarga el `.zip` o clona el repositorio.
 - Cuando ya tengas el respositorio localmente ejecuta los siguientes comandos.
 ```sh
-javac src/*.java -d out
+javac Mancala/*.java -d out
 java -cp out Mancala

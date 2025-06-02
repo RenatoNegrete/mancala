@@ -26,7 +26,7 @@ public class HumanPlayer implements Player {
     }
 
     @Override
-    public int chooseMove() {
+    public int chooseMove(Board board, int player, int depth) {
         int pit;
         System.out.println("Choose a pit (1-6): ");
         pit = scanner.nextInt();
