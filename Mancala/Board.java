@@ -137,17 +137,39 @@ public class Board {
     }
 
     public int heuristic(int player) {
-        int h = 0;
-        int rival = (player == 0) ? 1 : 0;
-        h += 5 * (this.pits[player][6].getRocks() - this.pits[rival][6].getRocks());
-        int sumP = 0, sumR = 0;
-        for(int i = 0; i < 6; i++) {
-            sumP += this.pits[player][i].getRocks();
-            sumR += this.pits[rival][i].getRocks();
+        int score = 0;
+        int opponent = (player == 0) ? 1 : 0;
+
+        score += 8 * (this.pits[player][6].getRocks() - this.pits[opponent][6].getRocks());
+
+        int playerPits = 0, opponentPits = 0;
+
+        for (int i = 0; i < 6; i++) {
+            int playerRocks = this.pits[player][i].getRocks();
+            int opponentRocks = this.pits[opponent][i].getRocks();
+
+            playerPits += playerRocks;
+            opponentPits += opponentRocks;
+
+            if (opponentRocks == 6 - i) {
+                score -= 6;
+            }
+
+            if (playerRocks == 0) {
+                int opposite = 5 - i;
+                int oppOppositeRocks = this.pits[opponent][opposite].getRocks();
+                if (oppOppositeRocks > 0) {
+                    score += oppOppositeRocks;
+                }
+            }
         }
-        h += 1 * (sumP - sumR);
-        return h;
+
+        score += playerPits - opponentPits;
+
+        return score;
     }
+
+
 
     public Board copy() {
         Board newBoard = new Board();
