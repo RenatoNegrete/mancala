@@ -23,7 +23,7 @@ Heuristica para el agente inteligente
 
 3.  Ecuacion de la heuristica
     
-    H = a(Ap - Ao) + b(Sp - So) + c(E) + d(C)
+    H = a(Ap - Ao) + b(Sp - So) + c(E)
 
     Variables
     Ap: cantidad de semillas en el almacen del jugador.
@@ -31,21 +31,18 @@ Heuristica para el agente inteligente
     Sp: cantidad de semillas en los hoyos del jugador.
     So: cantidad de semillas en los hoyos del rival.
     E: si el jugador obtiene un turno extra (1 o 0).
-    C: si el jugador hace una captura (1 o 0).
 
     Coeficientes de peso
     a: peso para la diferencia de semillas en almacenes.
     b: peso para la diferencia de semillas en hoyos.
     c: peso para turno extra.
-    d: peso para captura.
 
     Los coeficientes de peso puedne variar dependiendo de la importancia que se le de a cada aspecto.
     Algunos valores de peso recomendados son los siguientes.
     
     a = 5
     b = 1
-    c = 10
-    d = 12
+    c = 30
 
     Se da mas pesos a los turnos extra y a las capturas ya que son las que pueden dar mas ventaja al
     jugador. Y de igual manera se valora mas tener la mayor diferencia de semillas en los almacenes que
