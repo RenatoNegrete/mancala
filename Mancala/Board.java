@@ -43,11 +43,9 @@ public class Board {
         return pits[row][col];
     }
     
-
     public boolean finished() {
         boolean player1Empty = true;
         boolean player2Empty = true;
-    
         for (int i = 0; i < 6; i++) {
             if (pits[0][i].getRocks() != 0) {
                 player1Empty = false;
@@ -56,11 +54,24 @@ public class Board {
                 player2Empty = false;
             }
         }
-    
         return player1Empty || player2Empty;
     }
-    
 
+    public void afterFinishing() {
+        for (int i = 0; i < 6; i++) {
+            if (pits[0][i].getRocks() != 0) {
+                int left = pits[0][i].getRocks();
+                pits[0][6].addRock(left);
+                pits[0][i].clearPit();
+            }
+            if (pits[1][i].getRocks() != 0) {
+                int left = pits[1][i].getRocks();
+                pits[1][6].addRock(left);
+                pits[1][i].clearPit();
+            }
+        }
+    }
+    
     public void showBoard(String p1, String p2) {
         System.out.println("");
         System.out.println("");

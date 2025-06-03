@@ -119,7 +119,7 @@ public class Mancala {
             }
 
         }
-    
+        this.board.afterFinishing();
         this.board.showBoard(this.players[1].getName(), this.players[0].getName());
         int winner = this.board.getWinner();
         System.out.println("=======================================");
