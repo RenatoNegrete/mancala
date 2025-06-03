@@ -13,6 +13,7 @@
 **Ejemplo:**  
 Turno Jugador 1: escoge **E**
 
+```text
              a       b       c       d       e       f
   |-------------------------------------------------------------|      
   |      |       |       |   2   |       |   1   |       |      |
@@ -20,3 +21,18 @@ Turno Jugador 1: escoge **E**
   |      |   4   |   3   |   2   |       |   5   |       |      |
   |-------------------------------------------------------------|
              A       B       C       D       E       F
+```
+
+Después de movimiento (Turno Jugador 2):
+
+```text
+             a       b       c       d       e       f
+  |-------------------------------------------------------------|      
+  |      |       |       |   2   |   1   |   2   |   1   |      |
+  |      |-------|-------|-------|-------|-------|-------|  1   |
+  |      |   4   |   3   |   2   |       |       |   1   |      |
+  |-------------------------------------------------------------|
+             A       B       C       D       E       F
+```
+
+**Comentario:** El Jugador 1 mueve las semillas del hoyo E, va colocando una semilla en cada hoyo en sentido antihorario hasta quedarse sin semillas. En el ejemplo, las semillas pasan por el almacén, por lo que se coloca una en él y luego continúa sembrando en los hoyos del rival.
