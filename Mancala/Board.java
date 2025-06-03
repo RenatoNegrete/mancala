@@ -5,6 +5,7 @@
 *************************************************************/
 
 public class Board {
+
     private Pit[][] pits;
     private int heuristic;
     private boolean extra = false;
@@ -96,80 +97,60 @@ public class Board {
     public boolean moveRocks(int pitIndex, int player) {
         int rocks = pits[player][pitIndex].getRocks();
         pits[player][pitIndex].clearPit();
-    
         int currentSide = player;
         int currentIndex = pitIndex;
         boolean extraTurn = false;
-    
         while (rocks > 0) {
             currentIndex++;
-    
             if (currentIndex > 6) {
                 currentIndex = 0;
                 currentSide = 1 - currentSide;
             }
-    
             if (currentIndex == 6 && currentSide != player) {
                 continue;
             }
-    
             pits[currentSide][currentIndex].addRock(1);
             rocks--;
         }
-    
         if (currentSide == player && currentIndex == 6) {
             extraTurn = true;
         }
-    
         if (currentSide == player && currentIndex >= 0 && currentIndex < 6 &&
             pits[currentSide][currentIndex].getRocks() == 1) {
-    
             int oppositeIndex = 5 - currentIndex;
-            int captured = pits[1 - player][oppositeIndex].getRocks();
-            
+            int captured = pits[1 - player][oppositeIndex].getRocks();   
             if (captured > 0) {
                 pits[1 - player][oppositeIndex].clearPit();
                 pits[player][6].addRock(captured);
             }
         }
-    
         return extraTurn;
     }
 
     public int heuristic(int player) {
         int score = 0;
         int opponent = (player == 0) ? 1 : 0;
-
         score += 8 * (this.pits[player][6].getRocks() - this.pits[opponent][6].getRocks());
-
         int playerPits = 0, opponentPits = 0;
-
         for (int i = 0; i < 6; i++) {
             int playerRocks = this.pits[player][i].getRocks();
             int opponentRocks = this.pits[opponent][i].getRocks();
-
             playerPits += playerRocks;
             opponentPits += opponentRocks;
-
             if (opponentRocks == 6 - i) {
                 score -= 6;
             }
-
             if (playerRocks == 0) {
                 int opposite = 5 - i;
                 int oppOppositeRocks = this.pits[opponent][opposite].getRocks();
                 if (oppOppositeRocks > 0) {
-                    score += oppOppositeRocks;
+                    score -= oppOppositeRocks;
                 }
             }
         }
-
         score += playerPits - opponentPits;
-
         return score;
     }
-
-
 
     public Board copy() {
         Board newBoard = new Board();

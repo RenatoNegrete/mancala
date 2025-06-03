@@ -51,7 +51,27 @@ public class Mancala {
                             String pR = "Computer";
                             this.players[0] = new AIPlayer(pR);
                             this.players[1] = new HumanPlayer(pH);
-                            beginGame(6);
+                            System.out.println("Choose the dificulty: ");
+                            System.out.println("1. Easy");
+                            System.out.println("2. Medium");
+                            System.out.println("3. Hard");
+                            int depth = scanner.nextInt();
+                            switch (depth) {
+                                case 1:
+                                    depth = 2;
+                                    break;
+                                case 2:
+                                    depth = 6;
+                                    break;
+                                case 3:
+                                    depth = 10;
+                                    break;
+                                default:
+                                    System.out.println("Default dificulty is Medium");
+                                    depth = 6;
+                                    break;
+                            }
+                            beginGame(depth);
                             break;
                         default:
                             System.out.println("Invalid option, try again");
